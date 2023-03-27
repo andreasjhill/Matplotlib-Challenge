@@ -3,26 +3,26 @@
 The following lines of code were aided by Github user: "benanza"
 The location is under header: "Quartiles, Outliers and Boxplots"
 
-for treatment in Treatments:
+    for treatment in Treatments:
     
-    regiment = combined_df.loc[combined_df['Drug Regimen'] == treatment]
+        regiment = combined_df.loc[combined_df['Drug Regimen'] == treatment]
 
-    timepoint_df = regiment.loc[regiment['Timepoint'] == regiment['Last Timepoint']]
+        timepoint_df = regiment.loc[regiment['Timepoint'] == regiment['Last Timepoint']]
 
-    tumor_volume = timepoint_df['Tumor Volume (mm3)']
-    tumor_vol_data.append(tumor_volume)   
+        tumor_volume = timepoint_df['Tumor Volume (mm3)']
+        tumor_vol_data.append(tumor_volume)   
     
-    quartiles = tumor_volume.quantile([.25,.5,.75])
-    lowerq = quartiles[0.25]
-    upperq = quartiles[0.75]
-    iqr = upperq-lowerq
-    iqr = upperq-lowerq
-    print(f'The IQR for {treatment}: {iqr}')
+        quartiles = tumor_volume.quantile([.25,.5,.75])
+        lowerq = quartiles[0.25]
+        upperq = quartiles[0.75]
+        iqr = upperq-lowerq
+        iqr = upperq-lowerq
+        print(f'The IQR for {treatment}: {iqr}')
 
-    lowerbound = lowerq - 1.5*iqr
-    upperbound = upperq + 1.5*iqr
-    print(f'The Upper Bound for {treatment}: {upperbound}')
-    print(f'The Lower Bound for {treatment}: {lowerbound}')
+        lowerbound = lowerq - 1.5*iqr
+        upperbound = upperq + 1.5*iqr
+        print(f'The Upper Bound for {treatment}: {upperbound}')
+        print(f'The Lower Bound for {treatment}: {lowerbound}')
     
 The following lines of code were aided by ChatGPT:
 The location is under header: "Line and Scatter Plots"
